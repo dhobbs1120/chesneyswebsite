@@ -1,43 +1,118 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Sammy Student | Work hard, play hard</title>
-    <link rel="stylesheet" href="stylesheets/sammy-style.css">
-  </head>
-  <body>
-    <header>
-      <p><a href="index.html">Sammy Student</a></p>
-      <nav>
-        <ul>
-          <li><a href="about.html">About</a></li>
-          <li><a href="activities.html">Activities</a></li>
-          <li><a href="experience.html">Experience</a></li>
-          <li><a href="contact.html">Contact</a></li>
-        </ul>
-      </nav>
-    </header>
+<html lang="en">
+<head>
+<title>W3.CSS Template</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<style>
+body,h1,h2,h3,h4,h5 {font-family: "Raleway", sans-serif}
+.w3-third img{margin-bottom: -6px; opacity: 0.8; cursor: pointer}
+.w3-third img:hover{opacity: 1}
+</style>
+</head>
+<body class="w3-light-grey w3-content" style="max-width:1600px">
 
-    <div class="page">
-      <h1>Sammy Student</h1>
-      <p>Welcome to my site.</p>
+<!-- Sidebar/menu -->
+<nav class="w3-sidebar w3-bar-block w3-white w3-animate-left w3-text-grey w3-collapse w3-top w3-center" style="z-index:3;width:300px;font-weight:bold" id="mySidebar"><br>
+  <h3 class="w3-padding-64 w3-center"><b>Hi, I'm<br>Chesney</b></h3>
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-padding w3-hide-large">CLOSE</a>
+  <h4 class="w3-padding-32 w3-center">Click on each picture to learn more about me!
+</nav>
+
+<ul></ul>
+  <div class="w3-padding-32">
+    <div class="w3-bar w3-border">
+       <p style="text-align: center"> 
+     <a style="text-decoration:none" href="index.html">My Life &nbsp&nbsp|&nbsp&nbsp</a>
+      <a style="text-decoration:none" href="aboutme.html">Where I'm From &nbsp&nbsp|&nbsp&nbsp</a>
+      <a style="text-decoration:none" href="freckledface.html">My Freckled Face &nbsp&nbsp</a>
+     </p>
+    </div>
+  </div>
+</header>
+
+<!-- Top menu on small screens -->
+<header class="w3-container w3-top w3-hide-large w3-white w3-xlarge w3-padding-16">
+  <span class="w3-left w3-padding">Hi, I'm Chesney</span>
+  <a href="javascript:void(0)" class="w3-right w3-button w3-white" onclick="w3_open()">☰</a>
+</header>
+
+<!-- Overlay effect when opening sidebar on small screens -->
+<div class="w3-overlay w3-hide-large w3-animate-opacity" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
+
+<!-- !PAGE CONTENT! -->
+<div class="w3-main" style="margin-left:300px">
+
+  <!-- Push down content on small screens --> 
+  <div class="w3-hide-large" style="margin-top:83px"></div>
+  
+  <!-- Photo grid -->
+  <div class="w3-row">
+    <div class="w3-third">
+      <img src="images/car_ride.jpg" style="width:100%" onclick="onClick(this)" alt="Going on a road trip to St. Louis">
+      <img src="images/birthday.jpg" style="width:100%" onclick="onClick(this)" alt="Celebrating my second birthday!">
+      <img src="images/openroad.png" style="width:100%" onclick="onClick(this)" alt="Enjoying a patio day with my mom">
     </div>
 
-    <footer>
-      <p>&copy; 2025 Sammy Student |
-        <a href="https://github.com/prof-rossetti/student-site">source code</a>
-      </p>
-    </footer>
+    <div class="w3-third">
+      <img src="images/cafe.jpg" style="width:100%" onclick="onClick(this)" alt="I love sitting outside when it's nice out">
+      <img src="images/flamingo.jpg" style="width:100%" onclick="onClick(this)" alt="Unfortunately, the flamingo did not survive COVID lockdown">
+      <img src="images/reindeer.jpg" style="width:100%" onclick="onClick(this)" alt="Merry Christmas!">
+    </div>
+    
+    <div class="w3-third">
+      <img src="images/graduation.JPG" style="width:100%" onclick="onClick(this)" alt="Graduated top of my class!">
+      <img src="images/birthday_girl.jpg" style="width:100%" onclick="onClick(this)" alt="Welcome to my 5th birthday party">
+      <img src="images/summer.JPEG" style="width:100%" onclick="onClick(this)" alt="Cooling off on a hot summer day">
+    </div>
+  </div>
 
-    <script type="text/javascript">
+  
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" style="padding-top:0" onclick="this.style.display='none'">
+    <span class="w3-button w3-black w3-xlarge w3-display-topright">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption"></p>
+    </div>
+  </div>
 
-        //
-        // FYI: this is JavaScript!
-        //
-        var myMessage = "Hello World"
-        console.log(myMessage)
+  <!-- Footer -->
+  <footer class="w3-container w3-padding-32 w3-grey">  
+    <div class="w3-row-padding">
+      <div class="w3-third">
+        <h3>INFO</h3>
+        <p>Code taken from https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_portfolio2&stacked=h. Kenzie Lau-Kee also helped me with the code to naviagte to different pages</p>      
+      </div>
+  
+  
+<!-- End page content -->
+</div>
+
+<script>
+// Script to open and close sidebar
+function w3_open() {
+  document.getElementById("mySidebar").style.display = "block";
+  document.getElementById("myOverlay").style.display = "block";
+}
+ 
+function w3_close() {
+  document.getElementById("mySidebar").style.display = "none";
+  document.getElementById("myOverlay").style.display = "none";
+}
+
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+</script>
 
 
-    </script>
-  </body>
+</body>
 </html>
